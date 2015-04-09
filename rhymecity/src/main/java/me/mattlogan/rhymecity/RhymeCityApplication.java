@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import dagger.ObjectGraph;
 import me.mattlogan.rhymecity.api.ApiRequestHandler;
 import me.mattlogan.rhymecity.api.ApiService;
-import me.mattlogan.rhymecity.module.Modules;
 
 public class RhymeCityApplication extends Application {
 

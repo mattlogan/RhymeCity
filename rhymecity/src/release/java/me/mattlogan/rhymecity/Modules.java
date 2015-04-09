@@ -1,11 +1,10 @@
-package me.mattlogan.rhymecity.module;
-
-import me.mattlogan.rhymecity.AppModule;
+package me.mattlogan.rhymecity;
 
 public final class Modules {
     public static Object[] list(String apiKey) {
         return new Object[] {
-                new AppModule(apiKey)
+                new AppModule(apiKey),
+                new DebugAppModule()
         };
     }
 

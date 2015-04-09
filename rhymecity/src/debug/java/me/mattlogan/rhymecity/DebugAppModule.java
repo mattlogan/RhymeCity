@@ -1,4 +1,4 @@
-package me.mattlogan.rhymecity.module;
+package me.mattlogan.rhymecity;
 
 import javax.inject.Singleton;
 
