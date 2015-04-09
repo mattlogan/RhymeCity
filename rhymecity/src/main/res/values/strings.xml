@@ -2,13 +2,13 @@
 
     <string name="app_name">Rhyme City</string>
 
-    <string name="retrieve_rhymes_failed">Failed to retrieve rhymes</string>
-    <string name="no_rhymes_found_error">No rhymes found</string>
+    <string name="retrieve_rhymes_failed">The network is slow or unavailable</string>
+    <string name="no_rhymes_found_error">Couldn\'t find anything that rhymes with %s</string>
 
-    <string name="search_hint">Enter a word</string>
+    <string name="search_hint">What rhymes with…</string>
     <string name="rhyme_caps">RHYME</string>
     <string name="retry_caps">RETRY</string>
 
-    <string name="rhymes">Rhymes</string>
+    <string name="rhymes_with">Rhymes with %s</string>
 
 </resources>

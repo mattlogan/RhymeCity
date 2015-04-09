@@ -138,15 +138,15 @@ public class SearchFragment extends Fragment implements SearchPresenter.SearchVi
     }
 
     @Override
-    public void showNoRhymesFoundError() {
-        showError(getString(R.string.no_rhymes_found_error), false);
+    public void showNoRhymesFoundError(String word) {
+        showError(getString(R.string.no_rhymes_found_error, word), false);
     }
 
     @Override
-    public void goToRhymesViewWithRhymes(List<String> rhymeList) {
+    public void goToRhymesViewWithRhymes(String word, List<String> rhymeList) {
         getActivity().getFragmentManager()
                 .beginTransaction()
-                .replace(fragmentContainerId, RhymesFragment.newInstance(rhymeList))
+                .replace(fragmentContainerId, RhymesFragment.newInstance(word, rhymeList))
                 .addToBackStack(null)
                 .commit();
     }

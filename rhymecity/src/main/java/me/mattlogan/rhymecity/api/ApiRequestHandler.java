@@ -22,16 +22,18 @@ public class ApiRequestHandler {
     }
 
     @Subscribe
-    public void onRhymesRequested(RhymesRequestedEvent event) {
-        apiService.getRhymes(event.getWord(), new Callback<RhymesResponse>() {
+    public void onRhymesRequested(final RhymesRequestedEvent event) {
+        final String word = event.getWord();
+
+        apiService.getRhymes(word, new Callback<RhymesResponse>() {
             @Override
             public void success(RhymesResponse rhymesResponse, Response response) {
-                bus.post(new RhymesSuccessEvent(rhymesResponse.getRhymesObject().getAll()));
+                bus.post(new RhymesSuccessEvent(word, rhymesResponse.getRhymesObject().getAll()));
             }
 
             @Override
             public void failure(RetrofitError error) {
-                bus.post(new RhymesFailureEvent());
+                bus.post(new RhymesFailureEvent(word));
             }
         });
     }

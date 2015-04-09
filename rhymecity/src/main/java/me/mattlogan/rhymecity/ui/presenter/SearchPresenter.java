@@ -15,8 +15,8 @@ public class SearchPresenter {
         void showLoadingIndicator();
         void hideLoadingIndicator();
         void showRetrieveRhymesError();
-        void showNoRhymesFoundError();
-        void goToRhymesViewWithRhymes(List<String> rhymeList);
+        void showNoRhymesFoundError(String word);
+        void goToRhymesViewWithRhymes(String word, List<String> rhymeList);
     }
 
     private final SearchView view;
@@ -46,9 +46,9 @@ public class SearchPresenter {
 
         List<String> rhymeList = event.getRhymes();
         if (rhymeList.isEmpty()) {
-            view.showNoRhymesFoundError();
+            view.showNoRhymesFoundError(event.getWord());
         } else {
-            view.goToRhymesViewWithRhymes(rhymeList);
+            view.goToRhymesViewWithRhymes(event.getWord(), rhymeList);
         }
     }
 
