@@ -1,11 +1,21 @@
 # RhymeCity
 Demo Android app for finding rhymes using the [Words API](https://www.wordsapi.com/).
 
-Model-view-presenter UI architecture with Dagger, Otto, and Retrofit.
+### MVP
 
-Butterknife thrown in for good measure, and a cool [Snackbar](https://github.com/nispok/snackbar) library.
+This app showcases the model-view-presenter UI pattern.
+
+I use Dagger's scoped graphs to inject the Presenter into the Fragment (the "V" in MVP). The Fragment implements a view interface, and its methods are called by the Fragment's Presenter.
+
+Presenters request data by posting an event, and wait for a success or failure response via a call to their @Subscribe annotated methods.
+
+Butterknife is thrown in for boilerplate reduction and readability. You'll also find a cool [Snackbar](https://github.com/nispok/snackbar) library.
+
+### Testing
 
 Unit tests w/ Mockito and the new [testing-support-lib](https://developer.android.com/tools/testing-support-library/index.html).
+
+### Api Key
 
 You'll need an [api key](https://www.mashape.com/wordsapi/wordsapi) for the Words API to run it yourself.
 
