@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorPrimaryDark">@color/dark_green</item>
+
+        <item name="colorControlNormal">@color/dark_gray</item>
+        <item name="colorControlActivated">@color/dark_green</item>
+        <item name="colorControlHighlight">@color/dark_green</item>
+
+    </style>
+
+    <style name="AppTheme" parent="@style/BaseAppTheme"/>
+
+</resources>

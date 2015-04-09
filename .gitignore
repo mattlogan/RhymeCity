@@ -1,0 +1,8 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+rhymecity/src/main/res/values/api_key.xml

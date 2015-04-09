@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:paddingLeft="@dimen/standard_margin"
+                android:paddingRight="@dimen/standard_margin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/search_edit_text"
+        android:hint="@string/search_hint"
+        android:layout_marginTop="@dimen/big_margin"
+        android:layout_width="match_parent"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_edit_text"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:gravity="center"
+        android:text="@string/rhyme_caps"/>
+
+</RelativeLayout>

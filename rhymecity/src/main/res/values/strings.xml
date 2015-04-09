@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">Rhyme City</string>
+
+    <string name="retrieve_rhymes_failed">Failed to retrieve rhymes</string>
+    <string name="no_rhymes_found_error">No rhymes found</string>
+
+    <string name="search_hint">Enter a word</string>
+    <string name="rhyme_caps">RHYME</string>
+    <string name="retry_caps">RETRY</string>
+
+    <string name="rhymes">Rhymes</string>
+
+</resources>
