@@ -57,6 +57,7 @@ public class ApiRequestHandlerTest {
 
         verify(bus).post(eventArgument.capture());
 
+        assertEquals("test", eventArgument.getValue().getWord());
         assertEquals(rhymeList, eventArgument.getValue().getRhymes());
     }
 
@@ -72,6 +73,11 @@ public class ApiRequestHandlerTest {
 
         callbackArgument.getValue().failure(null);
 
-        verify(bus).post(isA(RhymesFailureEvent.class));
+        ArgumentCaptor<RhymesFailureEvent> eventArgument =
+                ArgumentCaptor.forClass(RhymesFailureEvent.class);
+
+        verify(bus).post(eventArgument.capture());
+
+        assertEquals("test", eventArgument.getValue().getWord());
     }
 }

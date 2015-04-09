@@ -16,6 +16,7 @@ import me.mattlogan.rhymecity.event.rhymes.RhymesRequestedEvent;
 import me.mattlogan.rhymecity.event.rhymes.RhymesSuccessEvent;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 
 public class SearchPresenterTest {
@@ -59,22 +60,22 @@ public class SearchPresenterTest {
 
     @Test
     public void testOnRhymesSuccessWithEmptyList() {
-        presenter.onRhymesSuccess(new RhymesSuccessEvent(new ArrayList<String>()));
-        verify(view).showNoRhymesFoundError();
+        presenter.onRhymesSuccess(new RhymesSuccessEvent("test", new ArrayList<String>()));
+        verify(view).showNoRhymesFoundError(eq("test"));
     }
 
     @Test
     public void testOnRhymesSuccessWithNonEmptyList() {
         List<String> rhymeList = new ArrayList<>();
         rhymeList.add("rest");
-        presenter.onRhymesSuccess(new RhymesSuccessEvent(rhymeList));
+        presenter.onRhymesSuccess(new RhymesSuccessEvent("test", rhymeList));
 
-        verify(view).goToRhymesViewWithRhymes(rhymeList);
+        verify(view).goToRhymesViewWithRhymes(eq("test"), eq(rhymeList));
     }
 
     @Test
     public void testOnRhymesFailure() {
-        presenter.onRhymesFailure(new RhymesFailureEvent());
+        presenter.onRhymesFailure(new RhymesFailureEvent("test"));
 
         verify(view).hideLoadingIndicator();
         verify(view).showRetrieveRhymesError();
