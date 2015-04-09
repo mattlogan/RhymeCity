@@ -1,5 +1,4 @@
-### RhymeCity
-This is a demo Android app for finding rhyming words. It uses the [Words API](https://www.wordsapi.com/).
+Rhyme City is a demo Android app for finding rhyming words. It uses the [Words API](https://www.wordsapi.com/).
 
 ### MVP
 
