@@ -88,8 +88,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="support-v4-22.0.0" level="project" />
     <orderEntry type="library" exported="" name="guava-15.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="mockito-core-1.9.0" level="project" />
     <orderEntry type="library" exported="" name="javawriter-2.3.0" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="mockito-core-1.9.0" level="project" />
     <orderEntry type="library" exported="" name="okio-1.2.0" level="project" />
     <orderEntry type="library" exported="" name="dagger-1.2.1" level="project" />
     <orderEntry type="library" exported="" name="okhttp-2.2.0" level="project" />
