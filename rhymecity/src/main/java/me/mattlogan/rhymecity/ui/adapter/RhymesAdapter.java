@@ -58,9 +58,4 @@ public class RhymesAdapter extends BaseAdapter {
 
         return view;
     }
-//
-//    @Override
-//    public boolean isEnabled(int position) {
-//        return false;
-//    }
 }
