@@ -119,6 +119,7 @@ public class SearchFragment extends Fragment implements SearchPresenter.SearchVi
     public void onPause() {
         super.onPause();
         presenter.onPause();
+        dismissKeyboard();
     }
 
     @Override
@@ -143,8 +144,6 @@ public class SearchFragment extends Fragment implements SearchPresenter.SearchVi
 
     @Override
     public void goToRhymesViewWithRhymes(List<String> rhymeList) {
-        dismissKeyboard();
-
         getActivity().getFragmentManager()
                 .beginTransaction()
                 .replace(fragmentContainerId, RhymesFragment.newInstance(rhymeList))
