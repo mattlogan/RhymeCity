@@ -1,5 +1,5 @@
-# RhymeCity
-Demo Android app for finding rhymes using the [Words API](https://www.wordsapi.com/).
+### RhymeCity
+This is a demo Android app for finding rhyming words. It uses the [Words API](https://www.wordsapi.com/).
 
 ### MVP
 
@@ -19,7 +19,7 @@ Unit tests w/ Mockito and the new [testing-support-lib](https://developer.androi
 
 You'll need an [api key](https://www.mashape.com/wordsapi/wordsapi) for the Words API to run it yourself.
 
-## License
+### License
 
 ```
 The MIT License (MIT)
