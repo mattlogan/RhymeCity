@@ -2,13 +2,11 @@ Rhyme City is a demo Android app for finding rhyming words. It uses the [Words A
 
 ### MVP
 
-This app showcases the model-view-presenter UI pattern.
+I created this app to demonstrate how I use the model-view-presenter UI pattern in practice.
 
-I use Dagger's scoped graphs to inject the Presenter into the Fragment (the "V" in MVP). The Fragment implements a view interface, and its methods are called by the Fragment's Presenter.
+I use Dagger's scoped graphs to inject the Presenter into the Fragment (the "V" in MVP). The Fragment implements a view interface, and its methods are called by the Fragment's Presenter. Read more about that [here](http://mattlogan.me/decoupling-the-presenter).
 
-Presenters request data by posting an event, and wait for a success or failure response via a call to their @Subscribe annotated methods.
-
-Butterknife is thrown in for boilerplate reduction and readability. You'll also find a cool [Snackbar](https://github.com/nispok/snackbar) library.
+Presenters request data by posting an event to a Bus (Otto). They wait for a success or failure response via a call to their @Subscribe annotated methods. This approach is described in a bit more detail [here](http://www.mdswanson.com/blog/2014/04/07/durable-android-rest-clients.html).
 
 ### Testing
 
@@ -16,7 +14,7 @@ Unit tests w/ Mockito and the new [testing-support-lib](https://developer.androi
 
 ### Api Key
 
-You'll need an [api key](https://www.mashape.com/wordsapi/wordsapi) for the Words API to run it yourself.
+You'll need an [api key](https://www.mashape.com/wordsapi/wordsapi) for the Words API to run it yourself. Add it to a strings resources file and call it `api_key`.
 
 ### License
 
