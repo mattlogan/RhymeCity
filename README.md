@@ -1,6 +1,6 @@
 Rhyme City is a demo Android app for finding rhyming words. It uses the [Words API](https://www.wordsapi.com/).
 
-### MVP and More
+### MVP and more
 
 I created this app to demonstrate how I use the model-view-presenter UI pattern in practice, along with a few of my favorite libraries.
 
@@ -10,7 +10,7 @@ I use Dagger's scoped graphs to inject the Presenter into the Fragment (the "V" 
 
 Unit tests w/ Mockito and the new [testing-support-lib](https://developer.android.com/tools/testing-support-library/index.html).
 
-### Api Key
+### Api key
 
 You'll need an [api key](https://www.mashape.com/wordsapi/wordsapi) for the Words API to run it yourself. Add it to a strings resources file and call it `api_key`.
 
