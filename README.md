@@ -1,6 +1,6 @@
 Rhyme City is a demo Android app for finding rhyming words. It uses the [Words API](https://www.wordsapi.com/).
 
-### MVP
+### MVP and More
 
 I created this app to demonstrate how I use the model-view-presenter UI pattern in practice, along with a few of my favorite libraries.
 
