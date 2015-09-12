@@ -6,7 +6,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import me.mattlogan.rhymecity.data.DataModel;
+import me.mattlogan.rhymecity.data.DataProvider;
+import me.mattlogan.rhymecity.data.WordsApiDataProvider;
 import me.mattlogan.rhymecity.data.api.AuthInterceptor;
 import me.mattlogan.rhymecity.data.api.ApiService;
 import retrofit.GsonConverterFactory;
@@ -46,7 +47,7 @@ public final class AppModule {
 
     @Provides
     @Singleton
-    DataModel provideDataModel(ApiService apiService) {
-        return new DataModel(apiService);
+    DataProvider provideDataProvider(ApiService apiService) {
+        return new WordsApiDataProvider(apiService);
     }
 }

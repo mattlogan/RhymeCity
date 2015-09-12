@@ -5,7 +5,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import me.mattlogan.rhymecity.AppModule;
-import me.mattlogan.rhymecity.data.DataModel;
+import me.mattlogan.rhymecity.data.DataProvider;
 import me.mattlogan.rhymecity.ui.fragment.SearchFragment;
 import me.mattlogan.rhymecity.ui.ui.SearchPresenter;
 
@@ -24,7 +24,9 @@ public final class SearchModule {
 
     @Provides
     @Singleton
-    SearchPresenter provideSearchPresenter(DataModel dataModel) {
-        return new SearchPresenter(searchView, dataModel);
+    SearchPresenter provideSearchPresenter(DataProvider dataProvider) {
+        return new SearchPresenter(searchView, dataProvider);
     }
+
+
 }
