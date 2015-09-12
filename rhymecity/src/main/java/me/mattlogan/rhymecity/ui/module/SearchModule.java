@@ -1,21 +1,20 @@
 package me.mattlogan.rhymecity.ui.module;
 
-import com.squareup.otto.Bus;
-
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 import me.mattlogan.rhymecity.AppModule;
+import me.mattlogan.rhymecity.data.DataModel;
 import me.mattlogan.rhymecity.ui.fragment.SearchFragment;
-import me.mattlogan.rhymecity.ui.presenter.SearchPresenter;
+import me.mattlogan.rhymecity.ui.ui.SearchPresenter;
 
 @Module(
         injects = SearchFragment.class,
         addsTo = AppModule.class,
         complete = false
 )
-public class SearchModule {
+public final class SearchModule {
 
     private final SearchPresenter.SearchView searchView;
 
@@ -25,7 +24,7 @@ public class SearchModule {
 
     @Provides
     @Singleton
-    SearchPresenter provideSearchPresenter(Bus bus) {
-        return new SearchPresenter(searchView, bus);
+    SearchPresenter provideSearchPresenter(DataModel dataModel) {
+        return new SearchPresenter(searchView, dataModel);
     }
 }

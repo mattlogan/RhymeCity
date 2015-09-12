@@ -1,22 +1,22 @@
 package me.mattlogan.rhymecity;
 
-import com.squareup.otto.Bus;
+import com.squareup.okhttp.OkHttpClient;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import me.mattlogan.rhymecity.api.ApiEndpoint;
-import me.mattlogan.rhymecity.api.ApiRequestInterceptor;
-import me.mattlogan.rhymecity.api.ApiService;
-import retrofit.Endpoint;
-import retrofit.RequestInterceptor;
-import retrofit.RestAdapter;
+import me.mattlogan.rhymecity.data.DataModel;
+import me.mattlogan.rhymecity.data.api.AuthInterceptor;
+import me.mattlogan.rhymecity.data.api.ApiService;
+import retrofit.GsonConverterFactory;
+import retrofit.Retrofit;
+import retrofit.RxJavaCallAdapterFactory;
 
 @Module(
-        injects = RhymeCityApplication.class
+        library = true
 )
-public class AppModule {
+public final class AppModule {
 
     private final String apiKey;
 
@@ -26,29 +26,27 @@ public class AppModule {
 
     @Provides
     @Singleton
-    RequestInterceptor provideRequestInterceptor() {
-        return new ApiRequestInterceptor(apiKey);
+    OkHttpClient provideClient() {
+        OkHttpClient client = new OkHttpClient();
+        client.interceptors().add(new AuthInterceptor(apiKey));
+        return client;
     }
 
     @Provides
     @Singleton
-    Endpoint provideEndpoint() {
-        return new ApiEndpoint();
-    }
-
-    @Provides
-    @Singleton
-    ApiService provideApiService(RequestInterceptor requestInterceptor, Endpoint endpoint) {
-        return new RestAdapter.Builder()
-                .setEndpoint(endpoint)
-                .setRequestInterceptor(requestInterceptor)
+    ApiService provideApiService(OkHttpClient client) {
+        return new Retrofit.Builder()
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("https://wordsapiv1.p.mashape.com")
+                .client(client)
                 .build()
                 .create(ApiService.class);
     }
 
     @Provides
     @Singleton
-    Bus provideBus() {
-        return new Bus();
+    DataModel provideDataModel(ApiService apiService) {
+        return new DataModel(apiService);
     }
 }

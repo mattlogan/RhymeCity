@@ -7,16 +7,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import me.mattlogan.rhymecity.R;
 import me.mattlogan.rhymecity.ui.fragment.SearchFragment;
 
-public class MainActivity extends ActionBarActivity
+public final class MainActivity extends ActionBarActivity
         implements ToolbarActivity, ProgressIndicatorActivity, FragmentContainerActivity {
 
-    @InjectView(R.id.main_activity_toolbar) Toolbar toolbar;
-    @InjectView(R.id.main_activity_progress_indicator) ProgressBar progressIndicator;
+    @Bind(R.id.main_activity_toolbar) Toolbar toolbar;
+    @Bind(R.id.main_activity_progress_indicator) ProgressBar progressIndicator;
 
     private FragmentManager fragmentManager;
 
@@ -25,7 +25,7 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
         fragmentManager = getFragmentManager();
 

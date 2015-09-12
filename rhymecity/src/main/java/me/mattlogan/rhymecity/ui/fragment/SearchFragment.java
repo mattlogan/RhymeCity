@@ -25,22 +25,22 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import me.mattlogan.rhymecity.R;
 import me.mattlogan.rhymecity.RhymeCityApplication;
 import me.mattlogan.rhymecity.ui.activity.FragmentContainerActivity;
 import me.mattlogan.rhymecity.ui.activity.ProgressIndicatorActivity;
 import me.mattlogan.rhymecity.ui.activity.ToolbarActivity;
 import me.mattlogan.rhymecity.ui.module.SearchModule;
-import me.mattlogan.rhymecity.ui.presenter.SearchPresenter;
+import me.mattlogan.rhymecity.ui.ui.SearchPresenter;
 
 public class SearchFragment extends Fragment implements SearchPresenter.SearchView {
 
     @Inject SearchPresenter presenter;
 
-    @InjectView(R.id.search_edit_text) EditText searchEditText;
-    @InjectView(R.id.search_button) Button searchButton;
+    @Bind(R.id.search_edit_text) EditText searchEditText;
+    @Bind(R.id.search_button) Button searchButton;
 
     private ProgressBar progressIndicator;
     private int fragmentContainerId;
@@ -60,7 +60,7 @@ public class SearchFragment extends Fragment implements SearchPresenter.SearchVi
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
 
         searchButton.setEnabled(false);
         searchEditText.addTextChangedListener(new TextWatcher() {
@@ -100,6 +100,12 @@ public class SearchFragment extends Fragment implements SearchPresenter.SearchVi
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         progressIndicator = ((ProgressIndicatorActivity) getActivity()).getProgressIndicator();
@@ -110,7 +116,6 @@ public class SearchFragment extends Fragment implements SearchPresenter.SearchVi
     @Override
     public void onResume() {
         super.onResume();
-        presenter.onResume();
         searchEditText.requestFocus();
         showKeyboard();
     }

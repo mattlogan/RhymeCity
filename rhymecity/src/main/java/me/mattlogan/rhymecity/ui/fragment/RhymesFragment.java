@@ -5,25 +5,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.io.Serializable;
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import me.mattlogan.rhymecity.R;
 import me.mattlogan.rhymecity.ui.activity.ToolbarActivity;
 import me.mattlogan.rhymecity.ui.adapter.RhymesAdapter;
 
-public class RhymesFragment extends Fragment {
+public final class RhymesFragment extends Fragment {
 
     private static String WORD_KEY = "word";
     private static String RHYME_LIST_KEY = "rhyme_list";
 
-    @InjectView(R.id.rhymes_list_view) ListView listView;
+    @Bind(R.id.rhymes_list_view) ListView listView;
 
     private String word;
     private List<String> rhymeList;
@@ -52,9 +50,15 @@ public class RhymesFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_rhymes, container, false);
-        ButterKnife.inject(this, view);
+        ButterKnife.bind(this, view);
         listView.setAdapter(new RhymesAdapter(getActivity(), rhymeList));
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 
     @Override

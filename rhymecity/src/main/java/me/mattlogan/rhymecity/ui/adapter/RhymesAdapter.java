@@ -9,11 +9,11 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import me.mattlogan.rhymecity.R;
 
-public class RhymesAdapter extends BaseAdapter {
+public final class RhymesAdapter extends BaseAdapter {
 
     private final Context context;
     private final List<String> rhymeList;
@@ -39,7 +39,7 @@ public class RhymesAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        @InjectView(R.id.rhyme_list_item_text) TextView rhymeText;
+        @Bind(R.id.rhyme_list_item_text) TextView rhymeText;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class RhymesAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.rhyme_list_item, parent, false);
             vh = new ViewHolder();
-            ButterKnife.inject(vh, view);
+            ButterKnife.bind(vh, view);
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();

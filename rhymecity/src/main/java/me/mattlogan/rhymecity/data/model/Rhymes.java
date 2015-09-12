@@ -1,17 +1,17 @@
-package me.mattlogan.rhymecity.api.model;
+package me.mattlogan.rhymecity.data.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RhymesObject {
+public final class Rhymes {
 
     private final List<String> all;
 
-    public RhymesObject(List<String> rhymeList) {
+    public Rhymes(List<String> rhymeList) {
         this.all = rhymeList;
     }
 
-    public List<String> getAll() {
+    public List<String> list() {
         return all != null ? all : new ArrayList<String>();
     }
 }
