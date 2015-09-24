@@ -8,7 +8,7 @@ I use Dagger's scoped graphs to inject the Presenter into the Fragment (the "V" 
 
 ### Testing
 
-Unit tests w/ Mockito and the new [testing-support-lib](https://developer.android.com/tools/testing-support-library/index.html).
+Unit tests use Mockito and JUnit.
 
 ### Api key
 
