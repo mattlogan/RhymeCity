@@ -10,5 +10,6 @@
     <string name="retry_caps">RETRY</string>
 
     <string name="rhymes_with">Rhymes with %s</string>
+    <string name="api_key">dummy key</string>
 
 </resources>
